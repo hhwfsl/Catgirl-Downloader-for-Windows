@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Catgirl Downloader for Windows(WinUI3) (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Catgirl Downloader for Windows(WinUI3) (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

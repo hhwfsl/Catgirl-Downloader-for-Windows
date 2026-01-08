@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Window
+    x:Class="Catgirl_Downloader_for_Windows_WinUI3_.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Catgirl_Downloader_for_Windows_WinUI3_"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Catgirl Downloader for Windows"
+    mc:Ignorable="d">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid
+            x:Name="TitleBarGrid"
+            Grid.Row="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <StackPanel
+                Margin="15,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Stretch"
+                Orientation="Horizontal">
+                <TextBlock
+                    x:Uid="AppTitle_TextBlock"
+                    VerticalAlignment="Stretch"
+                    FontSize="20"
+                    FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel
+                Margin="0,10,15,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Stretch"
+                Orientation="Horizontal"
+                Spacing="10">
+                <Ellipse
+                    x:Name="WindowControlMaximizeEllipse"
+                    Fill="{ThemeResource WindowControlMaximizeEllipseColor}"
+                    PointerReleased="WindowControlMaximizeEllipse_PointerReleased"
+                    Style="{StaticResource WindowControlEllipse}" />
+                <Ellipse
+                    x:Name="WindowControlMinimizeEllipse"
+                    Fill="{ThemeResource WindowControlMinimizeEllipseColor}"
+                    PointerReleased="WindowControlMinimizeEllipse_PointerReleased"
+                    Style="{StaticResource WindowControlEllipse}" />
+                <Ellipse
+                    x:Name="WindowControlCloseEllipse"
+                    Fill="{ThemeResource WindowControlCloseEllipseColor}"
+                    PointerReleased="WindowControlCloseEllipse_PointerReleased"
+                    Style="{StaticResource WindowControlEllipse}" />
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                BorderBrush="{StaticResource AppBarSeparatorForegroundThemeBrush}"
+                BorderThickness="0.5" />
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Padding="10">
+                <Image
+                    x:Name="DisplayImage"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Stretch="Uniform" />
+                <ProgressRing
+                    x:Name="ImageLoadingProgressRing"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+            </Grid>
+            <Grid Grid.Column="1" CornerRadius="25,0,0,25">
+                <Border Padding="10" CornerRadius="25,0,0,25">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical"
+                        Spacing="5">
+                        <Button
+                            x:Name="SaveImageButton"
+                            x:Uid="SaveImage_Button"
+                            Click="SaveImageButton_Click"
+                            Style="{StaticResource IconButton}">
+                            <FontIcon Glyph="&#xE896;" />
+                        </Button>
+                        <Button
+                            x:Name="RefreshButton"
+                            x:Uid="Refresh_Button"
+                            Click="RefreshButton_Click"
+                            Style="{StaticResource IconButton}">
+                            <FontIcon Glyph="&#xE72C;" />
+                        </Button>
+                        <Button
+                            x:Name="ChangeThemeButton"
+                            x:Uid="ChangeTheme_Button"
+                            Click="ChangeThemeButton_Click"
+                            Style="{StaticResource IconButton}">
+                            <FontIcon Glyph="&#xEA80;" />
+                        </Button>
+                        <Button
+                            x:Name="OpenSavingPathButton"
+                            x:Uid="OpenSavingPath_Button"
+                            Click="OpenSavingPathButton_Click"
+                            Style="{StaticResource IconButton}">
+                            <FontIcon Glyph="&#xE8B7;" />
+                        </Button>
+                        <Button
+                            x:Name="SettingButton"
+                            x:Uid="Setting_Button"
+                            Click="SettingButton_Click"
+                            Style="{StaticResource IconButton}">
+                            <FontIcon Glyph="&#xE713;" />
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid x:Name="InfoBarContainerGrid" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="InfoBarGrid" Grid.Column="1" />
+            </Grid>
+        </Grid>
+    </Grid>
+
+
+</Window>

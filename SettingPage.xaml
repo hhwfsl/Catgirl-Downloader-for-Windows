@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="Catgirl_Downloader_for_Windows_WinUI3_.SettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Catgirl_Downloader_for_Windows_WinUI3_"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Spacing="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Ellipse
+                    Grid.Row="0"
+                    Width="100"
+                    Height="100"
+                    Margin="0,0,0,10">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Assets/avatar.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <StackPanel
+                    Grid.Row="1"
+                    Orientation="Vertical"
+                    Spacing="5">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            x:Uid="SourceWeb_TextBlock"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                        <Image
+                            Width="24"
+                            Height="24"
+                            Source="/Assets/apple-touch-icon.png"
+                            Stretch="Uniform" />
+                        <HyperlinkButton Content="https://nekos.moe/" NavigateUri="https://nekos.moe/" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            x:Uid="RepositoryAddress_TextBlock"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                        <Image
+                            Width="24"
+                            Height="24"
+                            Source="/Assets/github.ico"
+                            Stretch="Uniform" />
+                        <HyperlinkButton Content="https://github.com/hhwfsl" NavigateUri="https://github.com/hhwfsl" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="1"
+                    Margin="0,5,0,5"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    BorderBrush="{ThemeResource AppBarSeparatorForegroundThemeBrush}"
+                    BorderThickness="0.5" />
+            </Grid>
+            <CheckBox
+                x:Name="IsEnableNSFWCheckBox"
+                x:Uid="IsEnableNSFW_CheckBox"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Checked="IsEnableNSFWCheckBox_Checked"
+                Unchecked="IsEnableNSFWCheckBox_Unchecked" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    BorderBrush="{ThemeResource AppBarSeparatorForegroundThemeBrush}"
+                    BorderThickness="0.5" />
+            </Grid>
+            <CheckBox
+                x:Name="IsEnableFixedSavingPathCheckBox"
+                x:Uid="IsEnableFixedSavingPath_CheckBox"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Checked="IsEnableFixedSavingPathCheckBox_Checked"
+                Unchecked="IsEnableFixedSavingPathCheckBox_Unchecked" />
+            <StackPanel
+                x:Name="PathSelectStackPanel"
+                Orientation="Horizontal"
+                Spacing="5">
+                <TextBlock
+                    x:Uid="SavingPath_TextBlock"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" />
+                <HyperlinkButton
+                    x:Name="PathSelectButton"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Click="PathSelectButton_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="3">
+                        <FontIcon
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Glyph="&#xE838;" />
+                        <TextBlock
+                            x:Uid="PathSelectButtonBrowse_TextBlock"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                    </StackPanel>
+                </HyperlinkButton>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    BorderBrush="{ThemeResource AppBarSeparatorForegroundThemeBrush}"
+                    BorderThickness="0.5" />
+            </Grid>
+            <HyperlinkButton
+                x:Name="ResizeWindowButton"
+                Width="Auto"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Click="ResizeWindowButton_Click">
+                <TextBlock
+                    x:Uid="ResizeWindowButtonResizeToDefaultSize_TextBlock"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" />
+            </HyperlinkButton>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    BorderBrush="{ThemeResource AppBarSeparatorForegroundThemeBrush}"
+                    BorderThickness="0.5" />
+            </Grid>
+            <StackPanel Orientation="Horizontal" Spacing="5">
+                <TextBlock
+                    x:Uid="ChangeLanguage_TextBlock"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" />
+                <ComboBox
+                    x:Name="LanguageListComboBox"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    SelectionChanged="LanguageListComboBox_SelectionChanged">
+                    <x:String>English (US)</x:String>
+                    <x:String>简体中文 (中国)</x:String>
+                    <x:String>日本語 (日本)</x:String>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

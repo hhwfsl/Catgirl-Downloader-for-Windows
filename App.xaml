@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="Catgirl_Downloader_for_Windows_WinUI3_.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Catgirl_Downloader_for_Windows_WinUI3_">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <ResourceDictionary Source="Styles/ThemeResourceDictionary.xaml" />
+                <ResourceDictionary Source="Styles/ButtonResourceDictionary.xaml" />
+                <ResourceDictionary Source="Styles/EllipseResourceDictionary.xaml" />
+                <!--  Other merged dictionaries here  -->
+            </ResourceDictionary.MergedDictionaries>
+            <!--  Other app resources here  -->
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
