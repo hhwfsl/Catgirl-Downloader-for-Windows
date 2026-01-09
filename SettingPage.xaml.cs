@@ -80,13 +80,13 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             string selectedItem = LanguageListComboBox.SelectedItem.ToString() ?? string.Empty;
             if (string.IsNullOrEmpty(selectedItem))
             {
-                AppLogger.LogError("Null or empty selected item of language.");
+                AppLogger.LogError(AppResourceLoader.GetString("Error_SettingPage_LanguageListComboBoxSelectionChanged_1"));
                 return;
             }
             string languageCode = LanguageMap.SimpleToFull(LanguageMap.DisplayToSimple(selectedItem));
             App.Current.Services.GetService<ISettingService>()!.SetLanguage(languageCode).SaveSetting();
             _settings.Language = languageCode;
-            //AppLogger.LogInfo($"Language changed to {languageCode}.");
+            
         }
     }
 }

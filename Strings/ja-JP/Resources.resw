@@ -162,4 +162,37 @@
   <data name="CopyImage_MenuFlyoutItem.Text" xml:space="preserve">
     <value>コピー</value>
   </data>
+  <data name="Info_Downloader_GetImageBytesById_1" xml:space="preserve">
+    <value>画像IDに基づいて画像データの取得を開始します。Id=</value>
+  </data>
+  <data name="Info_Downloader_GetImageId_1" xml:space="preserve">
+    <value>画像IDの取得が完了しました。Id=</value>
+  </data>
+  <data name="Info_Downloader_GetRandomImage_1" xml:space="preserve">
+    <value>ランダム画像の取得を開始します。URL=</value>
+  </data>
+  <data name="Error_MainWindow_BytesToBitmapImage_1" xml:space="preserve">
+    <value>空データを受け取りましたニャ、BitmapImageの変換に失敗しました。ネットワーク接続を確認して、もう一度試してくださいニャ〜</value>
+  </data>
+  <data name="Error_MainWindow_GetRandomImage_1" xml:space="preserve">
+    <value>画像を取得中です、少々お待ちくださいニャ〜</value>
+  </data>
+  <data name="Error_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>画像データが空です、保存に失敗しましたニャ〜</value>
+  </data>
+  <data name="Info_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>画像の保存が完了しました。保存先のパスは：</value>
+  </data>
+  <data name="Success_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>保存成功にゃ〜</value>
+  </data>
+  <data name="Error_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
+    <value>空の画像データを受け取ったので、クリップボードへのコピーに失敗しましたにゃ〜</value>
+  </data>
+  <data name="Error_MainWindow_OpenSavingPathButtonClick_1" xml:space="preserve">
+    <value>保存先のパスが空で、開けませんでしたにゃ〜。設定で「指定された保存パスを使用する」が有効になっていて、フォルダが選ばれているか確認してくださいにゃ〜</value>
+  </data>
+  <data name="Error_SettingPage_LanguageListComboBoxSelectionChanged_1" xml:space="preserve">
+    <value>選択された言語が空ですにゃ〜</value>
+  </data>
 </root>

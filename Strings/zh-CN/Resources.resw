@@ -162,4 +162,37 @@
   <data name="CopyImage_MenuFlyoutItem.Text" xml:space="preserve">
     <value>复制</value>
   </data>
+  <data name="Info_Downloader_GetImageBytesById_1" xml:space="preserve">
+    <value>开始根据图片Id获取图片数据。Id=</value>
+  </data>
+  <data name="Info_Downloader_GetImageId_1" xml:space="preserve">
+    <value>获取图片Id完成。Id=</value>
+  </data>
+  <data name="Info_Downloader_GetRandomImage_1" xml:space="preserve">
+    <value>开始获取随机图片。URL=</value>
+  </data>
+  <data name="Error_MainWindow_BytesToBitmapImage_1" xml:space="preserve">
+    <value>收到空数据了喵，BitmapImage转换失败。请查看网络连接并再次尝试喵~</value>
+  </data>
+  <data name="Error_MainWindow_GetRandomImage_1" xml:space="preserve">
+    <value>图片正在获取，请稍等喵~</value>
+  </data>
+  <data name="Error_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>图像数据为空，保存失败了喵~</value>
+  </data>
+  <data name="Info_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>保存图片完成。保存路径为：</value>
+  </data>
+  <data name="Success_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>保存成功喵~</value>
+  </data>
+  <data name="Error_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
+    <value>收到空的图片数据，复制到剪贴板失败了喵~</value>
+  </data>
+  <data name="Error_MainWindow_OpenSavingPathButtonClick_1" xml:space="preserve">
+    <value>保存路径为空，打开失败了喵~。请检查设置是否启用“使用指定保存路径”且选定了一个文件夹喵~</value>
+  </data>
+  <data name="Error_SettingPage_LanguageListComboBoxSelectionChanged_1" xml:space="preserve">
+    <value>选定的语言为空喵~</value>
+  </data>
 </root>

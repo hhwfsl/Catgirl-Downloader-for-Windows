@@ -34,7 +34,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             byte[]? response = null;
             try
             {
-                AppLogger.LogInfo($"Downloader: Begin to get image bytes by id. id={id}");
+                AppLogger.LogInfo($"{AppResourceLoader.GetString("Info_Downloader_GetImageBytesById_1")}{id}");
                 client.DefaultRequestHeaders.UserAgent.ParseAdd(AppConsts.AppUserAgent);
                 string url = $"{AppConsts.CatgirlBaseEndpoint}image/{id}.jpg";
                 response = await client.GetByteArrayAsync(url);
@@ -71,7 +71,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
                 doc = JsonDocument.Parse(json);
                 var image = doc.RootElement.GetProperty("images");
                 id = image[0].GetProperty("id").GetString() ?? string.Empty;
-                AppLogger.LogInfo($"Downloader: Getting image id complete. id={id}");
+                AppLogger.LogInfo($"{AppResourceLoader.GetString("Info_Downloader_GetImageId_1")}{id}");
             }
             catch(Exception e)
             {
@@ -97,7 +97,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             string url = $"{AppConsts.CatgirlApiEndpoint}random/image?nsfw={enableNSFW.ToString().ToLower()}&count={count}";
             try
             {
-                AppLogger.LogInfo($"Downloader: Begin to get random image. url={url}");
+                AppLogger.LogInfo($"{AppResourceLoader.GetString("Info_Downloader_GetRandomImage_1")}{url}");
                 var response = await client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
                 string id = await GetImageId(response);

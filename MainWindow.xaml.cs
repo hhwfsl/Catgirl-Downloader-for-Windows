@@ -219,7 +219,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
         {
             if(bytes == null)
             {
-                AppLogger.LogError("Null bytes, converting to BitmapImage failed.");
+                AppLogger.LogError(AppResourceLoader.GetString("Error_MainWindow_BytesToBitmapImage_1"));
                 return;
             }
             BitmapImage bitmapImage = new BitmapImage();
@@ -236,7 +236,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
         {
             if(_isGettingImage)
             {
-                InfomationInfo("Image is getting, please wait.");
+                InfomationInfo(AppResourceLoader.GetString("Error_MainWindow_GetRandomImage_1"));
                 return;
             }
             _isGettingImage = true;
@@ -258,7 +258,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             bool isFixedSavingPath = App.Current.Services.GetService<ISettingService>()!.GetSettings().IsEnableFixedSavingPath;
             if (_imageBytes == null)
             {
-                AppLogger.LogError("Null imageBytes, saving failed.");
+                AppLogger.LogError(AppResourceLoader.GetString("Error_MainWindow_SaveImage_1"));
                 return;
             }
             if (!isFixedSavingPath)
@@ -282,14 +282,14 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             {
                 AppLogger.LogError(e.Message);
             }
-            AppLogger.LogInfo($"MainWindow: Saving image complete. savingPath={savingPath}");
-            SuccessInfo("Saving completed");
+            AppLogger.LogInfo($"{AppResourceLoader.GetString("Info_MainWindow_SaveImage_1")}{savingPath}");
+            SuccessInfo(AppResourceLoader.GetString("Success_MainWindow_SaveImage_1"));
         }
         private async Task CopyImageToClipBoard()
         {
             if (_imageBytes == null || _imageBytes.Length <= 0)
             {
-                AppLogger.LogError("Null or empty imageBytes, copying to clipboard failed.");
+                AppLogger.LogError(AppResourceLoader.GetString("Error_MainWindow_CopyImageToClipBoard_1"));
                 return;
             }
             var ms = new InMemoryRandomAccessStream();
@@ -366,7 +366,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             string path = App.Current.Services.GetService<ISettingService>()!.GetSettings().SavingPath ?? string.Empty;
             if(string.IsNullOrEmpty(path))
             {
-                AppLogger.LogError("Null or empty path, opening saving path failed.");
+                AppLogger.LogError(AppResourceLoader.GetString("Error_MainWindow_OpenSavingPathButtonClick_1"));
                 return;
             }
             if (!Directory.Exists(path))

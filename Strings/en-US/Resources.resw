@@ -162,4 +162,37 @@
   <data name="CopyImage_MenuFlyoutItem.Text" xml:space="preserve">
     <value>Copy</value>
   </data>
+  <data name="Info_Downloader_GetImageBytesById_1" xml:space="preserve">
+    <value>Begin to get image bytes by id. Id=</value>
+  </data>
+  <data name="Info_Downloader_GetImageId_1" xml:space="preserve">
+    <value>Getting image id completed. Id=</value>
+  </data>
+  <data name="Info_Downloader_GetRandomImage_1" xml:space="preserve">
+    <value>Begin to get random image. URL=</value>
+  </data>
+  <data name="Error_MainWindow_BytesToBitmapImage_1" xml:space="preserve">
+    <value>Received empty data, meow. BitmapImage conversion failed. Please check your network connection and try again, meow~</value>
+  </data>
+  <data name="Error_MainWindow_GetRandomImage_1" xml:space="preserve">
+    <value>The image is being retrieved, please wait a moment, meow~</value>
+  </data>
+  <data name="Error_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>The image data is empty, save failed meow~</value>
+  </data>
+  <data name="Info_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>Saving image completed. Saving path=</value>
+  </data>
+  <data name="Success_MainWindow_SaveImage_1" xml:space="preserve">
+    <value>Saved successfully, meow~</value>
+  </data>
+  <data name="Error_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
+    <value>Received null or empty image data, failed to copy to clipboard meow~</value>
+  </data>
+  <data name="Error_MainWindow_OpenSavingPathButtonClick_1" xml:space="preserve">
+    <value>The save path is empty, failed to open meow~. Please check if the "Use specified saving path" option is enabled and a folder is selected meow~</value>
+  </data>
+  <data name="Error_SettingPage_LanguageListComboBoxSelectionChanged_1" xml:space="preserve">
+    <value>The selected language is empty, meow~</value>
+  </data>
 </root>
