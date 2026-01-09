@@ -15,7 +15,7 @@
 	  <PublishAot>true</PublishAot>
 	  <PublishSingleFile>false</PublishSingleFile>
 	  <!--<WindowsPackageType>None</WindowsPackageType>-->
-	  <WindowsPackageType>None</WindowsPackageType>
+	  
   </PropertyGroup>
   <ItemGroup>
     <None Remove="SettingPage.xaml" />
@@ -67,6 +67,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <WebView2EnableCsWinRTProjection>True</WebView2EnableCsWinRTProjection>
+    <WebView2LoaderPreference>Dynamic</WebView2LoaderPreference>
+  </PropertyGroup>
 	
 
   <!--
@@ -87,7 +91,7 @@
     <AssemblyName>Catgirl Downloader</AssemblyName>
     <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
     <PackageIcon>icon.png</PackageIcon>
-    <Version>2026.1.7.2</Version>
+    <Version>1.0.0</Version>
     <Authors>Kafuu Miaki</Authors>
     <Copyright>Kafuu Miaki</Copyright>
     <Description>Catgirl Downloader</Description>

@@ -13,7 +13,9 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI.WindowManagement;
 
@@ -22,19 +24,23 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
 {
     public sealed partial class MainWindow : Window
     {
+        // Window
         private IntPtr _hWnd;
         private WindowId _windowId;
         private int _windowWidth;
         private int _windowHeight;
 
+        // Data
         private Downloader _downloader;
         private byte[]? _imageBytes = null;
         private string _imageId = string.Empty;
         private Queue<string> _errorMessageQueue = new Queue<string>();
 
+        // Control
         private SemaphoreSlim _queueSemaphore = new SemaphoreSlim(0);
-
         private bool _isWindowClosing = false;
+        private bool _isGettingImage = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -162,6 +168,14 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
         {
             InfoAutoClose(InfoBarSeverity.Success, message);
         }
+        private void WarningInfo(string message)
+        {
+            InfoAutoClose(InfoBarSeverity.Warning, message);
+        }
+        private void InfomationInfo(string message)
+        {
+            InfoAutoClose(InfoBarSeverity.Informational, message);
+        }
         private void WindowClosed(object? sender, WindowEventArgs args)
         {
             _isWindowClosing = true;
@@ -220,14 +234,23 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
         
         private async void GetRandomImage()
         {
+            if(_isGettingImage)
+            {
+                InfomationInfo("Image is getting, please wait.");
+                return;
+            }
+            _isGettingImage = true;
             DisplayImage.Visibility = Visibility.Collapsed;
             ImageLoadingProgressRing.Visibility = Visibility.Visible;
             ImageLoadingProgressRing.IsActive = true;
+
             Settings settings = App.Current.Services.GetService<ISettingService>()!.GetSettings();
             await _downloader.GetRandomImage(settings.IsEnableNSFW);
+
             ImageLoadingProgressRing.Visibility = Visibility.Collapsed;
             ImageLoadingProgressRing.IsActive = false;
             DisplayImage.Visibility = Visibility.Visible;
+            _isGettingImage = false;
         }
         private async void SaveImage()
         {
@@ -261,6 +284,26 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             }
             AppLogger.LogInfo($"MainWindow: Saving image complete. savingPath={savingPath}");
             SuccessInfo("Saving completed");
+        }
+        private async Task CopyImageToClipBoard()
+        {
+            if (_imageBytes == null || _imageBytes.Length <= 0)
+            {
+                AppLogger.LogError("Null or empty imageBytes, copying to clipboard failed.");
+                return;
+            }
+            var ms = new InMemoryRandomAccessStream();
+            using (DataWriter writer = new DataWriter(ms.GetOutputStreamAt(0)))
+            {
+                writer.WriteBytes(_imageBytes);
+                await writer.StoreAsync();
+            }
+            var streamReference = RandomAccessStreamReference.CreateFromStream(ms);
+            var dataPackage = new DataPackage();
+            dataPackage.SetBitmap(streamReference);
+            Clipboard.SetContent(dataPackage);
+            Clipboard.Flush();
+            ms.Dispose();
         }
 
         [DllImport("user32.dll")]
@@ -341,6 +384,11 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
         private async void SaveImageButton_Click(object sender, RoutedEventArgs e)
         {
             SaveImage();
+        }
+
+        private async void CopyImageMenuFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            await CopyImageToClipBoard();
         }
     }
 }

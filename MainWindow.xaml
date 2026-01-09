@@ -83,7 +83,17 @@
                     x:Name="DisplayImage"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Stretch="Uniform" />
+                    Stretch="Uniform">
+                    <Image.ContextFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem
+                                x:Name="CopyImageMenuFlyoutItem"
+                                x:Uid="CopyImage_MenuFlyoutItem"
+                                Click="CopyImageMenuFlyoutItem_Click"
+                                Icon="Copy" />
+                        </MenuFlyout>
+                    </Image.ContextFlyout>
+                </Image>
                 <ProgressRing
                     x:Name="ImageLoadingProgressRing"
                     HorizontalAlignment="Center"

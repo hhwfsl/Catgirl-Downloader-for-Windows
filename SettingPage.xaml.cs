@@ -86,7 +86,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             string languageCode = LanguageMap.SimpleToFull(LanguageMap.DisplayToSimple(selectedItem));
             App.Current.Services.GetService<ISettingService>()!.SetLanguage(languageCode).SaveSetting();
             _settings.Language = languageCode;
-            AppLogger.LogInfo($"Language changed to {languageCode}.");
+            //AppLogger.LogInfo($"Language changed to {languageCode}.");
         }
     }
 }

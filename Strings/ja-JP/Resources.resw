@@ -159,4 +159,7 @@
   <data name="RepositoryAddress_TextBlock.Text" xml:space="preserve">
     <value>リポジトリのアドレス</value>
   </data>
+  <data name="CopyImage_MenuFlyoutItem.Text" xml:space="preserve">
+    <value>コピー</value>
+  </data>
 </root>

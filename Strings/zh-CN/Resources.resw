@@ -159,4 +159,7 @@
   <data name="RepositoryAddress_TextBlock.Text" xml:space="preserve">
     <value>仓库地址</value>
   </data>
+  <data name="CopyImage_MenuFlyoutItem.Text" xml:space="preserve">
+    <value>复制</value>
+  </data>
 </root>
