@@ -195,4 +195,7 @@
   <data name="Error_SettingPage_LanguageListComboBoxSelectionChanged_1" xml:space="preserve">
     <value>The selected language is empty, meow~</value>
   </data>
+  <data name="Success_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
+    <value>Copy successful, meow~</value>
+  </data>
 </root>

@@ -195,4 +195,7 @@
   <data name="Error_SettingPage_LanguageListComboBoxSelectionChanged_1" xml:space="preserve">
     <value>選択された言語が空ですにゃ〜</value>
   </data>
+  <data name="Success_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
+    <value>コピー成功ニャ〜</value>
+  </data>
 </root>

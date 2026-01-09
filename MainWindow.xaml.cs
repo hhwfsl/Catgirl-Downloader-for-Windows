@@ -211,7 +211,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
                 new Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition(),
             };
             InfoBarGrid.Children.Add(infoBar);
-            await Task.Delay(2000);
+            await Task.Delay(3000);
             infoBar.IsOpen = false;
             InfoBarGrid.Children.Remove(infoBar);
         }
@@ -304,6 +304,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             Clipboard.SetContent(dataPackage);
             Clipboard.Flush();
             ms.Dispose();
+            SuccessInfo(AppResourceLoader.GetString("Success_MainWindow_CopyImageToClipBoard_1"));
         }
 
         [DllImport("user32.dll")]
