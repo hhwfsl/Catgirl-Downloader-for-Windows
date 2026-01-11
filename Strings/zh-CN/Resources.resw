@@ -198,9 +198,6 @@
   <data name="Success_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
     <value>复制成功喵~</value>
   </data>
-  <data name="UserName_TextBlock.Text" xml:space="preserve">
-    <value>用户</value>
-  </data>
   <data name="EditUserAvatar_MenuFlyoutItem.Text" xml:space="preserve">
     <value>修改头像</value>
   </data>
@@ -209,8 +206,5 @@
   </data>
   <data name="Warning_SettingPage_UserNameTextBoxLostFocus_1" xml:space="preserve">
     <value>名称不可以为空喵~</value>
-  </data>
-  <data name="DefaultUserName" xml:space="preserve">
-    <value>用户</value>
   </data>
 </root>

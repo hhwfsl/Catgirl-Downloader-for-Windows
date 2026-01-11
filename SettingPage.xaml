@@ -36,7 +36,6 @@
                 </Ellipse>
                 <TextBlock
                     x:Name="UserNameTextBlock"
-                    x:Uid="UserName_TextBlock"
                     Grid.Row="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"

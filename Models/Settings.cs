@@ -18,7 +18,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_.Models
         public string Language { get; set; } = "en-US";// Only set full language tag here, e.g., en-US, zh-Hans-CN, ja-JP
 
         // User settings
-        public string UserName {  get; set; } = AppResourceLoader.GetString("DefaultUserName");
+        public string UserName { get; set; } = "User";
         public string UserAvatarPath { get; set; } = Path.Combine(AppConsts.AppAssetsDirectory, "avatar.png");
         
     }
