@@ -1,7 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
 using System.IO;
 using System.Text.Json.Serialization;
-using Windows.System.UserProfile;
 
 namespace Catgirl_Downloader_for_Windows_WinUI3_.Models
 {

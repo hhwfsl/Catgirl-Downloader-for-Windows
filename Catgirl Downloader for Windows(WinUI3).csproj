@@ -15,7 +15,7 @@
 	  <PublishAot>true</PublishAot>
 	  <PublishSingleFile>false</PublishSingleFile>
 	  <!--<WindowsPackageType>None</WindowsPackageType>-->
-	  
+	  <WindowsPackageType>None</WindowsPackageType>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="SettingPage.xaml" />
