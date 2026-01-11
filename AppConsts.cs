@@ -7,6 +7,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
     {
         public static readonly string AppBaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
         public static readonly string ConfigFilePath = Path.Combine(AppBaseDirectory, "config.json");
+        public static readonly string AppAssetsDirectory = Path.Combine(AppBaseDirectory, "Assets");
         public static readonly string CatgirlBaseEndpoint = "https://nekos.moe/";
         public static readonly string CatgirlApiEndpoint = "https://nekos.moe/api/v1/";
         public static readonly string AppUserAgent = "MiakiCatgirlDownloader";

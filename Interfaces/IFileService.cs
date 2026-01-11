@@ -8,5 +8,6 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_.Interfaces
     {
         public void Initialize(Window window);
         public Task<StorageFolder?> PickFolderAsync();
+        public Task<StorageFile?> PickImageAsync();
     }
 }

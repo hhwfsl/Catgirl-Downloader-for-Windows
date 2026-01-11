@@ -115,6 +115,17 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_.Services
             _settings.Language = language;
             return this;
         }
+        public ISettingService SetUserName(string userName)
+        {
+            _settings.UserName = userName;
+            return this;
+        }
+
+        public ISettingService SetUserAvatarPath(string avatarPath)
+        {
+            _settings.UserAvatarPath = avatarPath;
+            return this;
+        }
 
         /// <summary>
         /// Resize window to standard size.
@@ -124,6 +135,11 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_.Services
             _resizeWindowMethod?.Invoke();
         }
 
-        
+        public string SetDefaultUserNameWithSaving()
+        {
+            _settings.UserName = new Settings().UserName;
+            SaveSetting();
+            return _settings.UserName;
+        }
     }
 }

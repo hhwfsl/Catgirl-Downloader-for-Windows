@@ -8,7 +8,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
     public static class AppLogger
     {
         private static readonly SemaphoreSlim _logLock = new SemaphoreSlim(1,1);
-        private static Action<string>? _addErrorToErrorMessageQueue = null;
+        private static Action<InfoBarSeverity, string>? _addToMessageQueue = null;
         private static async void WriteLog(InfoBarSeverity status, string message)
         {
             await _logLock.WaitAsync();
@@ -24,15 +24,15 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
                 File.Create(path).Close();
             }
             await File.AppendAllTextAsync(path, log + Environment.NewLine);
-            if(status == InfoBarSeverity.Error)
+            if(status == InfoBarSeverity.Error || status == InfoBarSeverity.Warning)
             {
-                _addErrorToErrorMessageQueue?.Invoke(log);
+                _addToMessageQueue?.Invoke(status, log);
             }
             _logLock.Release();
         }
-        public static void Initialize(Action<string> addToMessageQueue)
+        public static void Initialize(Action<InfoBarSeverity, string> addToMessageQueue)
         {
-            _addErrorToErrorMessageQueue = addToMessageQueue;
+            _addToMessageQueue = addToMessageQueue;
         }
         public static void LogInfo(string message)
         {

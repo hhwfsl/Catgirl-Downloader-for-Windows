@@ -14,18 +14,55 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Ellipse
-                    Grid.Row="0"
+                    x:Name="UserAvatarEllipse"
                     Width="100"
                     Height="100"
                     Margin="0,0,0,10">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Assets/avatar.png" />
+                        <ImageBrush x:Name="UserAvatarImageBrush" />
                     </Ellipse.Fill>
+                    <Ellipse.ContextFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem
+                                x:Name="EditUserAvatarMenuFlyoutItem"
+                                x:Uid="EditUserAvatar_MenuFlyoutItem"
+                                Click="EditUserAvatarMenuFlyoutItem_Click"
+                                Icon="Edit" />
+                        </MenuFlyout>
+                    </Ellipse.ContextFlyout>
                 </Ellipse>
-                <StackPanel
+                <TextBlock
+                    x:Name="UserNameTextBlock"
                     Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="Bold">
+                    <TextBlock.ContextFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem
+                                x:Name="EditUserNameMenuFlyoutItem"
+                                x:Uid="EditUserName_MenuFlyoutItem"
+                                Click="EditUserNameMenuFlyoutItem_Click"
+                                Icon="Edit" />
+                        </MenuFlyout>
+                    </TextBlock.ContextFlyout>
+                </TextBlock>
+                <TextBox
+                    x:Name="UserNameTextBox"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    KeyDown="UserNameTextBox_KeyDown"
+                    LostFocus="UserNameTextBox_LostFocus"
+                    Visibility="Collapsed" />
+                <StackPanel
+                    Grid.Row="2"
                     Orientation="Vertical"
                     Spacing="5">
                     <StackPanel Orientation="Horizontal">

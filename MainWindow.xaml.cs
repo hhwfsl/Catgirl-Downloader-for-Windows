@@ -35,9 +35,10 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
         private byte[]? _imageBytes = null;
         private string _imageId = string.Empty;
         private Queue<string> _errorMessageQueue = new Queue<string>();
-
+        private Queue<string> _warningMessageQueue = new Queue<string>();
         // Control
-        private SemaphoreSlim _queueSemaphore = new SemaphoreSlim(0);
+        private SemaphoreSlim _errorQueueSemaphore = new SemaphoreSlim(0);
+        private SemaphoreSlim _warningQueueSemaphore = new SemaphoreSlim(0);
         private bool _isWindowClosing = false;
         private bool _isGettingImage = false;
 
@@ -60,11 +61,12 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
             DisplayImage.Visibility = Visibility.Collapsed;
             ImageLoadingProgressRing.IsActive = false;
             ImageLoadingProgressRing.Visibility = Visibility.Collapsed;
-            AppLogger.Initialize(AddErrorMessageToQueue);
+            AppLogger.Initialize(AddErrorAndWarningMessageToQueue);
 
             this.Closed += WindowClosed;
 
             Task.Run(ErrorInfo);// When error occurs, show InfoBar in the main window
+            Task.Run(WarningInfo);
         }
         /// <summary>
         /// Save window size when window size changed.
@@ -142,10 +144,18 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
                 .SaveSetting();
             AppWindow.Resize(new Windows.Graphics.SizeInt32(_windowWidth, _windowHeight));
         }
-        private void AddErrorMessageToQueue(string message)
+        private void AddErrorAndWarningMessageToQueue(InfoBarSeverity status, string message)
         {
-            _errorMessageQueue.Enqueue(message);
-            _queueSemaphore.Release();
+            if(status == InfoBarSeverity.Error)
+            {
+                _errorMessageQueue.Enqueue(message);
+                _errorQueueSemaphore.Release();
+            }
+            else if(status == InfoBarSeverity.Warning)
+            {
+                _warningMessageQueue.Enqueue(message);
+                _warningQueueSemaphore.Release();
+            }
         }
         /// <summary>
         /// Give error to InfoBar from the error message queue.
@@ -155,14 +165,35 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
         {
             while(!_isWindowClosing)
             {
-                await _queueSemaphore.WaitAsync();
+                await _errorQueueSemaphore.WaitAsync();
                 if (_errorMessageQueue.Count > 0)
                 {
                     string message = _errorMessageQueue.Dequeue();
-                    DispatcherQueue.TryEnqueue(() => InfoManuallyClose(InfoBarSeverity.Error, message));
+                    DispatcherQueue.TryEnqueue(() => ErrorInfo(message));
                 }
                 await Task.Delay(200);
             }
+        }
+        /// <summary>
+        /// Give warning to InfoBar from the warning message queue.
+        /// </summary>
+        /// <returns></returns>
+        private async Task WarningInfo()
+        {
+            while (!_isWindowClosing)
+            {
+                await _warningQueueSemaphore.WaitAsync();
+                if (_warningMessageQueue.Count > 0)
+                {
+                    string message = _warningMessageQueue.Dequeue();
+                    DispatcherQueue.TryEnqueue(() => WarningInfo(message));
+                }
+                await Task.Delay(200);
+            }
+        }
+        private void ErrorInfo(string message)
+        {
+            InfoManuallyClose(InfoBarSeverity.Error, message);
         }
         private void SuccessInfo(string message)
         {
@@ -170,7 +201,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
         }
         private void WarningInfo(string message)
         {
-            InfoAutoClose(InfoBarSeverity.Warning, message);
+            InfoManuallyClose(InfoBarSeverity.Warning, message);
         }
         private void InfomationInfo(string message)
         {
@@ -211,7 +242,7 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_
                 new Microsoft.UI.Xaml.Media.Animation.EntranceThemeTransition(),
             };
             InfoBarGrid.Children.Add(infoBar);
-            await Task.Delay(3000);
+            await Task.Delay(2500);
             infoBar.IsOpen = false;
             InfoBarGrid.Children.Remove(infoBar);
         }

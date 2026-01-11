@@ -24,6 +24,9 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_.Interfaces
 
         public ISettingService SetSavingPath(string savingPath);
         public ISettingService SetLanguage(string language);
+        public ISettingService SetUserName(string userName);
+        public ISettingService SetUserAvatarPath(string avatarPath);
+        public string SetDefaultUserNameWithSaving();
         public void ResizeWindowToStandardSize();
         
     }

@@ -198,4 +198,16 @@
   <data name="Success_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
     <value>コピー成功ニャ〜</value>
   </data>
+  <data name="DefaultUserName" xml:space="preserve">
+    <value>ユーザー</value>
+  </data>
+  <data name="EditUserAvatar_MenuFlyoutItem.Text" xml:space="preserve">
+    <value>プロフィール画像を変更する</value>
+  </data>
+  <data name="EditUserName_MenuFlyoutItem.Text" xml:space="preserve">
+    <value>名前を変更</value>
+  </data>
+  <data name="Warning_SettingPage_UserNameTextBoxLostFocus_1" xml:space="preserve">
+    <value>名前は空にできニャ〜</value>
+  </data>
 </root>

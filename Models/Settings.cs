@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
+using System.IO;
 using System.Text.Json.Serialization;
 using Windows.System.UserProfile;
 
@@ -17,7 +18,10 @@ namespace Catgirl_Downloader_for_Windows_WinUI3_.Models
         public string? SavingPath { get; set; } = null;
         public string Language { get; set; } = "en-US";// Only set full language tag here, e.g., en-US, zh-Hans-CN, ja-JP
 
-
+        // User settings
+        public string UserName {  get; set; } = AppResourceLoader.GetString("DefaultUserName");
+        public string UserAvatarPath { get; set; } = Path.Combine(AppConsts.AppAssetsDirectory, "avatar.png");
+        
     }
 
     [JsonSourceGenerationOptions(WriteIndented = true)]

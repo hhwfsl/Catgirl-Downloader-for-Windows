@@ -198,4 +198,16 @@
   <data name="Success_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
     <value>Copy successful, meow~</value>
   </data>
+  <data name="DefaultUserName" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="EditUserAvatar_MenuFlyoutItem.Text" xml:space="preserve">
+    <value>Edit avatar</value>
+  </data>
+  <data name="EditUserName_MenuFlyoutItem.Text" xml:space="preserve">
+    <value>Edit name</value>
+  </data>
+  <data name="Warning_SettingPage_UserNameTextBoxLostFocus_1" xml:space="preserve">
+    <value>Name cannot be empty meow~</value>
+  </data>
 </root>
