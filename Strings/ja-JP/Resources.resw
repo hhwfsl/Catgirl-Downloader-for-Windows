@@ -198,7 +198,7 @@
   <data name="Success_MainWindow_CopyImageToClipBoard_1" xml:space="preserve">
     <value>コピー成功ニャ〜</value>
   </data>
-  <data name="DefaultUserName" xml:space="preserve">
+  <data name="UserName_TextBlock.Text" xml:space="preserve">
     <value>ユーザー</value>
   </data>
   <data name="EditUserAvatar_MenuFlyoutItem.Text" xml:space="preserve">
@@ -209,5 +209,8 @@
   </data>
   <data name="Warning_SettingPage_UserNameTextBoxLostFocus_1" xml:space="preserve">
     <value>名前は空にできニャ〜</value>
+  </data>
+  <data name="DefaultUserName" xml:space="preserve">
+    <value>ユーザー</value>
   </data>
 </root>

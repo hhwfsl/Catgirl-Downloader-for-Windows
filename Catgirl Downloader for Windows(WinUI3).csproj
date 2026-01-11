@@ -15,7 +15,7 @@
 	  <PublishAot>true</PublishAot>
 	  <PublishSingleFile>false</PublishSingleFile>
 	  <!--<WindowsPackageType>None</WindowsPackageType>-->
-	  <WindowsPackageType>None</WindowsPackageType>
+	  
   </PropertyGroup>
   <ItemGroup>
     <None Remove="SettingPage.xaml" />
@@ -102,6 +102,10 @@
     <Content Remove="Assets\github.ico" />
     <Content Remove="Assets\icon.ico" />
     <Content Remove="Assets\icon.png" />
+    <Content Remove="Assets\SplashScreen.scale-100.png" />
+    <Content Remove="Assets\SplashScreen.scale-125.png" />
+    <Content Remove="Assets\SplashScreen.scale-150.png" />
+    <Content Remove="Assets\SplashScreen.scale-400.png" />
     <Content Remove="Strings\en-US\Resources.resw" />
     <Content Remove="Strings\ja-JP\Resources.resw" />
     <Content Remove="Strings\zh-CN\Resources.resw" />
