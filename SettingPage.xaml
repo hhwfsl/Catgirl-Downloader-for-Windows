@@ -89,7 +89,7 @@
                             Height="24"
                             Source="/Assets/github.ico"
                             Stretch="Uniform" />
-                        <HyperlinkButton Content="Github Link" NavigateUri="https://github.com/hhwfsl/Catgirl-Downloader-for-Windows" />
+                        <HyperlinkButton Content="GitHub Link" NavigateUri="https://github.com/hhwfsl/Catgirl-Downloader-for-Windows" />
                     </StackPanel>
                 </StackPanel>
             </Grid>
